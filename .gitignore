@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 .env
 CreateCabinForm-v1.jsx
+CabinTable-v1.jsx
