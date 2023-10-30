@@ -6,7 +6,7 @@ import FormRow from '../../ui/FormRow.jsx';
 import Input from '../../ui/Input';
 import Textarea from '../../ui/Textarea';
 import useCreateCabin from './useCreateCabin.js';
-import useEditCabin from './useEditCabin.js';
+import useUpdateCabin from './useUpdateCabin.js';
 
 function CreateCabinForm({ cabinToEdit = {} }) {
   const { id: editId, ...editValues } = cabinToEdit;
@@ -24,7 +24,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
   const { isCreating, createCabin } = useCreateCabin();
 
-  const { isEditing, editCabin } = useEditCabin();
+  const { isEditing, updateCabin } = useUpdateCabin();
 
   const isWorking = isCreating || isEditing;
 
@@ -32,7 +32,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
     const image = typeof data.image === 'string' ? data.image : data.image[0];
 
     if (isEditSession)
-      editCabin(
+      updateCabin(
         { newCabinData: { ...data, image }, id: editId },
         {
           onSuccess: (data) => {
@@ -48,7 +48,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         {
           onSuccess: (data) => {
             // We get access to the data being submitted
-            console.log(data);
+            // console.log(data);
             reset();
           },
         },
@@ -108,15 +108,11 @@ function CreateCabinForm({ cabinToEdit = {} }) {
           {...register('discount', {
             required: 'This field is required',
             validate: (value) =>
-              value <= getValues().regularPrice ||
-              'Discount should be less than regular price',
+              value <= getValues().regularPrice || 'Discount should be less than regular price',
           })}
         />
       </FormRow>
-      <FormRow
-        label="Description for website"
-        error={errors?.description?.message}
-      >
+      <FormRow label="Description for website" error={errors?.description?.message}>
         <Textarea
           id="description"
           defaultValue=""
@@ -142,9 +138,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button disabled={isWorking}>
-          {isEditSession ? 'Edit cabin' : 'Create new cabin'}
-        </Button>
+        <Button disabled={isWorking}>{isEditSession ? 'Edit cabin' : 'Create new cabin'}</Button>
       </FormRow>
     </Form>
   );
