@@ -1,14 +1,14 @@
 import { useForm } from 'react-hook-form';
-import Button from '../../ui/Button';
-import FileInput from '../../ui/FileInput';
-import Form from '../../ui/Form';
+import Button from '../../ui/Button.jsx';
+import FileInput from '../../ui/FileInput.jsx';
+import Form from '../../ui/Form.jsx';
 import FormRow from '../../ui/FormRow.jsx';
-import Input from '../../ui/Input';
-import Textarea from '../../ui/Textarea';
+import Input from '../../ui/Input.jsx';
+import Textarea from '../../ui/Textarea.jsx';
 import useCreateCabin from './useCreateCabin.js';
 import useUpdateCabin from './useUpdateCabin.js';
 
-function CreateCabinForm({ cabinToEdit = {} }) {
+function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
 
@@ -50,6 +50,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
             // We get access to the data being submitted
             // console.log(data);
             reset();
+            onCloseModal?.();
           },
         },
       );
@@ -60,7 +61,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)} type={onCloseModal ? 'modal' : 'regular'}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
@@ -135,7 +136,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button variation="secondary" type="reset" onClick={() => onCloseModal?.()}>
           Cancel
         </Button>
         <Button disabled={isWorking}>{isEditSession ? 'Edit cabin' : 'Create new cabin'}</Button>
