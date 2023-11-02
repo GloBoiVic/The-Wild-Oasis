@@ -25,5 +25,6 @@ dist-ssr
 .env
 CreateCabinForm-v1.jsx
 CabinTable-v1.jsx
+CabinTable-v2.jsx
 Modal-v1.jsx
 AddCabin-v1.jsx
