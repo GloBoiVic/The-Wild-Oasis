@@ -39,6 +39,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
             // We get access to the data being submitted
             console.log(data);
             reset();
+            onCloseModal?.();
           },
         },
       );

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { HiXMark } from 'react-icons/hi2';
+import { cloneElement, createContext, useContext, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { cloneElement, createContext, useContext, useEffect, useRef, useState } from 'react';
+import { HiXMark } from 'react-icons/hi2';
+import styled from 'styled-components';
 import useOutsideWindow from '../hooks/useOutsideWindow.js';
 
 const StyledModal = styled.div`
