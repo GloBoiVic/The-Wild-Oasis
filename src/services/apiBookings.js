@@ -16,7 +16,7 @@ export async function getBookings({ filter, sortBy, page }) {
   if (sortBy) query = query.order(sortBy.field, { ascending: sortBy.direction === 'asc' });
 
   // PAGINATION
-  if (page) {
+  if (page && page > 1 && page <= PAGE_SIZE) {
     const from = (page - 1) * PAGE_SIZE;
     const to = from + PAGE_SIZE - 1;
     query = query.range(from, to);
