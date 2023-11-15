@@ -62,6 +62,7 @@ const PaginationButton = styled.button`
 function Pagination({ count }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  //BUG: Conditionally render current page to match pageSize || page count
   const currentPage = !searchParams.get('page') ? 1 : Number(searchParams.get('page'));
 
   const pageCount = Math.ceil(count / PAGE_SIZE);

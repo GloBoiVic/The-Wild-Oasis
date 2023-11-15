@@ -41,6 +41,7 @@ function Filter({ filterField, options }) {
 
   const handleClick = (value) => {
     searchParams.set(filterField, value);
+    searchParams.set('page', 1); // fixed pagination bug on filter + last page
     setSearchParams(searchParams);
   };
   return (
