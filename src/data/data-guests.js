@@ -103,8 +103,8 @@ export const guests = [
     countryFlag: 'https://flagcdn.com/eg.svg',
   },
   {
-    fullName: 'John Doe',
-    email: 'johndoe@gmail.com',
+    fullName: 'Nique B',
+    email: 'niqueb@test.io',
     nationality: 'United States',
     nationalID: '3245908744',
     countryFlag: 'https://flagcdn.com/us.svg',
@@ -201,8 +201,8 @@ export const guests = [
     countryFlag: 'https://flagcdn.com/ar.svg',
   },
   {
-    fullName: 'Ibrahim Ahmed',
-    email: 'ibrahim@yahoo.com',
+    fullName: 'Victor Ike',
+    email: 'vike@test.io',
     nationality: 'Nigeria',
     nationalID: '2345678009',
     countryFlag: 'https://flagcdn.com/ng.svg',
