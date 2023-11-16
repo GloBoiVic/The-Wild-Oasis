@@ -14,6 +14,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { StyleSheetManager } from 'styled-components';
 import emotionIsPropValid from '@emotion/is-prop-valid';
+import Booking from './pages/Booking.jsx';
+import Checkin from './pages/Checkin.jsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,9 +32,7 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <StyleSheetManager
         shouldForwardProp={(propName, elementToBeRendered) => {
-          return typeof elementToBeRendered === 'string'
-            ? emotionIsPropValid(propName)
-            : true;
+          return typeof elementToBeRendered === 'string' ? emotionIsPropValid(propName) : true;
         }}
       >
         <GlobalStyles />
@@ -42,6 +42,8 @@ function App() {
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="bookings" element={<Bookings />} />
+              <Route path="bookings/:bookingId" element={<Booking />} />
+              <Route path="checkin/:bookingId" element={<Checkin />} />
               <Route path="cabins" element={<Cabins />} />
               <Route path="users" element={<NewUsers />} />
               <Route path="settings" element={<Settings />} />
