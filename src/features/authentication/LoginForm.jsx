@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from '../../ui/Button';
 import Form from '../../ui/Form';
-import Input from '../../ui/Input';
 import FormRowVertical from '../../ui/FormRowVertical';
-import useLogin from './useLogin';
+import Input from '../../ui/Input';
 import SpinnerMini from '../../ui/SpinnerMini';
+import useLogin from './useLogin';
 
 function LoginForm() {
   const [email, setEmail] = useState('vike@test.io');
@@ -16,7 +16,15 @@ function LoginForm() {
 
     if (!email || !password) return;
 
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail('');
+          setPassword('');
+        },
+      },
+    );
   }
 
   return (
