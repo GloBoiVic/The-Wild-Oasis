@@ -41,7 +41,8 @@ function Filter({ filterField, options }) {
 
   const handleClick = (value) => {
     searchParams.set(filterField, value);
-    searchParams.set('page', 1); // fixed pagination bug on filter + last page
+    // searchParams.set('page', 1); // fixed pagination bug on filter + last page
+    if (searchParams.get('page')) searchParams.set('page', 1);
     setSearchParams(searchParams);
   };
   return (
