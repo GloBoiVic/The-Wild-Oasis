@@ -24,7 +24,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
 
   return (
     <>
-      <Stat title="Bookins" color="blue" icon={<HiOutlineBriefcase />} value={numBookings} />
+      <Stat title="Bookings" color="blue" icon={<HiOutlineBriefcase />} value={numBookings} />
       <Stat
         title="Sales"
         color="green"
