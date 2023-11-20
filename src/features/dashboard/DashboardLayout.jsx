@@ -19,7 +19,6 @@ function DashboardLayout() {
   const { bookings, isLoading: isLoadingBookings } = useRecentBookings();
   const { isLoading: isLoadingStays, confirmedStays, numDays } = useRecentStays();
   const { cabins, isLoading: isLoadingCabins } = useCabins();
-
   if (isLoadingBookings || isLoadingStays || isLoadingCabins) return <Spinner />;
 
   return (
