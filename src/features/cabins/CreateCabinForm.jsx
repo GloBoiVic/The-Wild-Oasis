@@ -47,7 +47,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       createCabin(
         { ...data, image: image },
         {
-          onSuccess: (data) => {
+          onSuccess: () => {
             // We get access to the data being submitted
             // console.log(data);
             reset();
@@ -57,7 +57,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       );
   };
 
-  function onError(errors) {
+  function onError() {
     // console.log(errors);
   }
 

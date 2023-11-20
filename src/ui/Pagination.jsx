@@ -85,11 +85,11 @@ function Pagination({ count }) {
   if (pageCount <= 1) return null;
   return (
     <StyledPagination>
-      <p>
+      <P>
         Showing <span>{(currentPage - 1) * PAGE_SIZE + 1}</span> to{' '}
         <span>{currentPage === pageCount ? count : currentPage * PAGE_SIZE}</span> of{' '}
         <span>{count}</span> results
-      </p>
+      </P>
 
       <ButtonGroup>
         <PaginationButton onClick={previousPage} disabled={currentPage === 1}>

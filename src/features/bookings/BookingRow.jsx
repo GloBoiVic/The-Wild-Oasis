@@ -7,7 +7,7 @@ import Table from '../../ui/Table.jsx';
 import { formatCurrency } from '../../utils/helpers';
 import { formatDistanceFromNow } from '../../utils/helpers';
 import Menus from '../../ui/Menus.jsx';
-import { HiArrowDownOnSquare, HiArrowUpOnSquare, HiEye, HiTrash, HiXMark } from 'react-icons/hi2';
+import { HiArrowDownOnSquare, HiArrowUpOnSquare, HiEye, HiTrash } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
 import useCheckout from '../check-in-out/useCheckout.js';
 import useDeleteBooking from './useDeleteBooking.js';
@@ -44,11 +44,9 @@ const Amount = styled.div`
 function BookingRow({
   booking: {
     id: bookingId,
-    created_at,
     startDate,
     endDate,
     numNights,
-    numGuests,
     totalPrice,
     status,
     guests: { fullName: guestName, email },
